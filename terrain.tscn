@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmad1ndj454vi"]
+
+[ext_resource type="PackedScene" uid="uid://dwa8efl8wn6vi" path="res://player.tscn" id="2_0u6kl"]
+[ext_resource type="Script" uid="uid://bg7ukxi4ti4ab" path="res://scripts/terrain_manager.gd" id="3_avahw"]
+[ext_resource type="PackedScene" uid="uid://pascll2tx83k" path="res://terrain_chunk.tscn" id="3_n7k1k"]
+
+[sub_resource type="Environment" id="Environment_0u6kl"]
+fog_enabled = true
+fog_light_color = Color(0.619124, 0.467646, 0.297133, 1)
+fog_light_energy = 0.73
+fog_density = 0.005
+
+[node name="main" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("2_0u6kl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.8575, 0)
+speed = 50.0
+
+[node name="sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.324724, 0.380203, 0, 0.760406, 0.649448, -0.5, 0.562438, -0.658531, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0u6kl")
+
+[node name="terrain_manager" type="Node3D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("3_avahw")
+chunk_scene = ExtResource("3_n7k1k")
+player = NodePath("../Player")
+render_distance = 3
+use_heightmap_collision = true
