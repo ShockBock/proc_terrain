@@ -28,4 +28,3 @@ script = ExtResource("3_avahw")
 chunk_scene = ExtResource("3_n7k1k")
 player = NodePath("../Player")
 render_distance = 3
-use_heightmap_collision = true

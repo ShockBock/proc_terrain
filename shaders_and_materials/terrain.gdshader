@@ -13,8 +13,8 @@ uniform float transition_point : hint_range(0.0, 1.0);
 uniform float min_height;
 uniform float max_height;
 
-uniform float earth_texture_scale : hint_range(0.1, 20.0); 
-uniform float rock_texture_scale : hint_range(0.1, 20.0); 
+uniform float earth_texture_scale : hint_range(0.1, 20.0);
+uniform float rock_texture_scale : hint_range(0.1, 20.0);
 
 varying float vertex_height;
 
@@ -26,7 +26,7 @@ void fragment() {
     // Clamp height factor
     float height_factor = clamp(
         (vertex_height - min_height) / (max_height - min_height),
-        0.0, 
+        0.0,
         1.0
     );
 

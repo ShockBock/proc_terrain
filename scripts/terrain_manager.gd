@@ -10,7 +10,8 @@ extends Node3D
 ## Limit streaming
 @export var chunks_per_frame: int = 1
 
-## Toggle collision type: false = Concave, true = HeightMap
+## Toggle collision type: false = Concave, true = HeightMap.
+## Use heightmap for simple terrains and concave for more complex geometry (cliffs etc.)
 @export var use_heightmap_collision: bool = false
 
 ## Dictionary of active chunks
